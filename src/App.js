@@ -19,6 +19,43 @@ class App extends Component {
     userNameInput: "",
     users: [],
   };
+  handleChange = (event) => {
+    if (event.target.name === "firstName") {
+      this.setState({
+        firstNameInput: event.target.value,
+      });
+    } else if (event.target.name === "lastName") {
+      this.setState({
+        lastNameInput: event.target.value,
+      });
+    } else {
+      this.setState({
+        userNameInput: event.target.value,
+      });
+    }
+  };
+  formSubmit = () => {
+    this.setState((prevState) => ({
+      users: [
+        ...prevState.users,
+        {
+          id: prevState.users.length + 1,
+          firstName: this.state.firstNameInput,
+          lastName: this.state.lastNameInput,
+          userName: this.state.userNameInput,
+          gamesPlayed: 0,
+        },
+      ],
+    }));
+  };
+  deleteLastUser = () => {
+    this.setState((prevState) => ({
+      users: prevState.users.slice(0, -1),
+    }));
+  };
+  noUsersFound = () => {
+    return this.state.users.length === 0;
+  };
   render() {
     return (
       <div className="App">
