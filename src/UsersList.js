@@ -1,7 +1,11 @@
 import React, { Component } from "react";
 import GamesCount from "./GamesCount";
+import PropTypes from "prop-types";
 
 class UsersList extends Component {
+  static propTypes = {
+    usersArray: PropTypes.array.isRequired,
+  };
   state = {
     visible: true,
   };
