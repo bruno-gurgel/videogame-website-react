@@ -14,6 +14,7 @@ function Button(props) {
 Button.propTypes = {
   disabled: PropTypes.bool.isRequired,
   name: PropTypes.string.isRequired,
+  deleteLastUser: PropTypes.func,
 };
 
 export default Button;
