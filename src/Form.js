@@ -4,17 +4,21 @@ import Button from "./Button";
 import PropTypes from "prop-types";
 
 class Form extends Component {
-  state = {
-    contactExists: false,
-  };
   static propTypes = {
+    users: PropTypes.array.isRequired,
     formSubmit: PropTypes.func.isRequired,
     handleChange: PropTypes.func.isRequired,
+    firstNameInput: PropTypes.string.isRequired,
+    lastNameInput: PropTypes.string.isRequired,
+    userNameInput: PropTypes.string.isRequired,
+  };
+  state = {
+    contactExists: false,
   };
   inputsAreEmpty = () => {
     return (
       this.props.firstNameInput === "" ||
-      this.props.lasttNameInput === "" ||
+      this.props.lastNameInput === "" ||
       this.props.userNameInput === ""
     );
   };
